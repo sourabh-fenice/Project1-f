@@ -11,7 +11,7 @@ function Login() {
         e.preventDefault();
 
         try {
-            let url = process.env.REACT_APP_Base_Url? process.env.REACT_APP_Base_Url : "http://localhost:3000"
+            let url = import.meta.env.VITE_Base_Url ? import.meta.env.VITE_Base_Url : "http://localhost:3000"
             url = url + "/bo/apis/auth/login"
             const res = await axios.post(url, {
                 email, password

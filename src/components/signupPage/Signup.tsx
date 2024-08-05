@@ -44,7 +44,7 @@ function Signup() {
     }
 
     try {
-        let url = process.env.REACT_APP_Base_Url ? process.env.REACT_APP_Base_Url : "http://localhost:3000"
+        let url = import.meta.env.REACT_APP_Base_Url ? import.meta.env.REACT_APP_Base_Url : "http://localhost:3000"
         url = url + "/bo/apis/user/"
       const response = await axios.post(url, 
         user
