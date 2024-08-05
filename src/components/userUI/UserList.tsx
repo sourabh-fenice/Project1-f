@@ -29,7 +29,7 @@ const UserComp: React.FC<UserProps> = ({ user, onRefresh }) => {
   const handleRejectUser = async (user: any) => {
     try{
         console.log('Rejected user:', user);
-            let url = import.meta.env.REACT_APP_Base_Url ? import.meta.env.REACT_APP_Base_Url : "http://localhost:3000"
+            let url = import.meta.env.VITE_Base_Url ? import.meta.env.VITE_Base_Url : "https://project1-9vsw.onrender.com"
             url = url + `/bo/apis/user/softDelete/${user._id}`
         const response = await axios.post(url, 
             user
@@ -46,7 +46,7 @@ const UserComp: React.FC<UserProps> = ({ user, onRefresh }) => {
   const handleAcceptUser = async (user: any) => {
     try{
         console.log('Selected user:', user);
-        let url = import.meta.env.REACT_APP_Base_Url ? import.meta.env.REACT_APP_Base_Url : "http://localhost:3000"
+        let url = import.meta.env.VITE_Base_Url ? import.meta.env.VITE_Base_Url : "https://project1-9vsw.onrender.com"
             url = url + `/bo/apis/user/accept/${user._id}`
         const response = await axios.post(url , 
             user

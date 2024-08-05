@@ -21,7 +21,7 @@ const UserList = () => {
 
     const fetchUsers = async () => {
         try {
-            let url = import.meta.env.VITE_Base_Url? import.meta.env.VITE_Base_Url : "http://localhost:3000"
+            let url = import.meta.env.VITE_Base_Url? import.meta.env.VITE_Base_Url : "https://project1-9vsw.onrender.com"
             url = url + "/bo/apis/user/"
             const response = await axios.get(url);
             setUsers(response.data.data);
