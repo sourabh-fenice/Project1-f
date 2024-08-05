@@ -11,9 +11,7 @@ interface UserInput {
   role: string;
 }
 
-interface SignupResponse {
-  // Define the structure of the signup response data
-}
+
 
 function Signup() {
   const [user, setUser] = useState<UserInput>({

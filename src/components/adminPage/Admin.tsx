@@ -8,8 +8,9 @@ interface User {
     name: string;
     email: string;
     address: string;
-    created_on: Date;
+    created_on: string;
     role: string;
+    is_delete: boolean;
     // Add other user properties as needed
 }
 
