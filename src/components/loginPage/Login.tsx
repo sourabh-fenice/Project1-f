@@ -1,11 +1,18 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import axios from "axios"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import './Login.css'
 
 function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const navigate = useNavigate();
+    const [user, setUser] = useState(localStorage.getItem("user"));
+    useEffect(() => {
+        if (user) {        
+            navigate("/home", { replace: true });          
+        }
+      }, [navigate, user]);
 
     async function submit(e: any) {
         e.preventDefault();
@@ -23,9 +30,10 @@ function Login() {
                     email: res.data.data.user.email,
                     name: res.data.data.user.name
                 }
-                console.log(user)
-                localStorage.setItem("user", JSON.stringify(user))
-                window.location.href = "/home"
+                console.log(user, "Login")
+                localStorage.setItem("user", JSON.stringify(user));
+                setUser(JSON.stringify(user)); // Update the state to trigger useEffect
+
             }
         }
         catch (e) {
