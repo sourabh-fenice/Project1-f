@@ -13,20 +13,11 @@ interface UserProps {
     is_delete: boolean;
   };
   onRefresh: () => void;
+  token: string;
 }
 
-const UserComp: React.FC<UserProps> = ({ user, onRefresh }) => {
-//   const userStyle = {
-//     display: 'flex',
-//     justifyContent: 'space-between',
-//     alignItems: 'center',
-//     padding: '10px',
-//     backgroundColor: '#f0f0f0', // lighter background color for better readability
-//     margin: '5px 0',
-//     borderRadius: '5px', // add some border radius for a smoother look
-//   };
-  const user_data:any = localStorage.getItem("user");
-  const token = JSON.parse(user_data).token;
+const UserComp: React.FC<UserProps> = ({ user, onRefresh, token }) => {
+
   const handleRejectUser = async (user: any) => {
     try{
         console.log('Rejected user:', user);
